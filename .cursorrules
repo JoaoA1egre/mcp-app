@@ -1,0 +1,39 @@
+# Laravel Project Rules & Best Practices
+
+Você é um especialista em PHP 8.3 e Laravel 11/12. Siga rigorosamente estas diretrizes:
+
+## 1. General Principles
+- Sempre utilize `declare(strict_types=1);` no topo de todos os arquivos PHP.
+- Priorize os princípios SOLID e Clean Code.
+- Mantenha respostas técnicas, concisas e focadas em implementações modernas.
+- Evite comentários óbvios; use comentários apenas para documentar lógicas complexas de forma resumida.
+
+## 2. Type System & PHP 8.3
+- Use tipagem estrita para todas as propriedades de classe, parâmetros de métodos e tipos de retorno.
+- Utilize explicit return types em todas as funções/métodos.
+- Para valores anuláveis, utilize o operador `?` (ex: `?string`).
+- Use `readonly` para classes de serviço e DTOs.
+
+## 3. Architecture (Service Layer)
+- **Controllers:** Devem ser magros (Thin Controllers). Toda lógica de negócio deve residir em Services.
+- **Services:** - Localizados em `app/Services`.
+  - Organizados por domínio (ex: `app/Services/Models` ou `app/Services/External`).
+  - Devem ser classes `final readonly class`.
+  - Devem ser injetados via construtor (Dependency Injection).
+
+## 4. Naming Conventions
+- **Classes/Arquivos:** `PascalCase` (ex: `UserRegistrationService.php`).
+- **Métodos:** `camelCase` (ex: `processPayment()`).
+- **Banco de Dados:** `snake_case` para colunas e tabelas.
+- **Models:** Singular (ex: `Character`).
+- **Controllers:** Plural (ex: `CharactersController`).
+- **Pastas:** Nomes consistentes e descritivos.
+
+## 5. Laravel MCP (Model Context Protocol)
+- Use o protocolo MCP para expor ferramentas à IA.
+- Servers devem ser registrados em `routes/ai.php`.
+- Tools devem herdar de `Laravel\Mcp\Tool` e implementar o método `handle`.
+
+## 6. Laravel Sail & Docker
+- Todo comando deve ser pensado para ser executado via Sail (ex: `./vendor/bin/sail artisan ...`).
+- Não assuma que o PHP está instalado localmente na máquina host.
