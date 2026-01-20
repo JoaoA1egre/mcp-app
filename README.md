@@ -287,7 +287,7 @@ DB_PASSWORD=password
 - [Documentação Laravel MCP](https://laravel.com/docs/mcp)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [Laravel Sail](https://laravel.com/docs/sail)
-- [SWAPI - Star Wars API](https://swapi.dev/)
+- [SWAPI - Star Wars API](https://swapi.bry.com.br/)
 
 ## 📄 Licença
 
